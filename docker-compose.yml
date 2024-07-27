@@ -1,0 +1,22 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: 'python /app/manage.py runserver 0.0.0.0:8000'
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app/
+
+  # db:
+  #   image: postgres
+  #   restart: always
+  #   environment:
+  #     POSTGRES_DB: greenlight
+  #     POSTGRES_PASSWORD: psswd
+  #     POSTGRES_USER: user
+  #   volumes:
+  #     - ./.postgres-data/db:/var/lib/postgresql/data 
+  #   ports:
+  #     - 5432:5432
