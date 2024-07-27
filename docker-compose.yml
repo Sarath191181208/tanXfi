@@ -9,6 +9,17 @@ services:
     volumes:
       - .:/app/
 
+  celery_worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    command: 'celery -A price_alert worker --loglevel=info'
+    depends_on:
+      - redis
+    volumes:
+      - .:/app/
+
   redis:
     image: redis:latest
     restart: always
