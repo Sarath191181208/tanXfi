@@ -1,5 +1,6 @@
 # TanXFi 
-An microservice application to solve the problem mentioned in the ./problem.md. Basically a price monitoring system which mails when a certain threshold is met.
+An microservice application to solve the problem mentioned in the [problem.md](problem.md).
+Basically a price monitoring system which mails when a certain threshold is met.
 
 ## Overview 
 The project uses the fowlling technologies: 
@@ -46,6 +47,7 @@ The project uses the fowlling technologies:
         ## admin
         name: admin 
         password: --none--
+    
         ## user
         name: user
         password: user@2001
@@ -68,3 +70,8 @@ These are the steps you have to follow:
     ```
 3. What it does is it creates 4 windows namely `1.nvim`, `2.cmd`, `3.docker`, `4.lazydocker` and puts you in this tmux session. This helps you by saving configuring tmux manually.
 
+## Unsafe practices 
+All the unsafe practices like putting visible `passwords`, `keys`, `apis`, etc... Are to make the review purpose easier.
+
+## Todo 
+The work that needs to be done is put in [Todo.md](Todo.md).
