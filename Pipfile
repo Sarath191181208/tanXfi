@@ -13,6 +13,9 @@ redis = "*"
 websocket-client = "*"
 djangorestframework-simplejwt = "*"
 drf-jwt = "*"
+celery = "*"
+websockets = "*"
+asyncio = "*"
 
 [dev-packages]
 

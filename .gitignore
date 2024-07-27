@@ -1,3 +1,5 @@
+# Locally stored redis files 
+.redis/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
