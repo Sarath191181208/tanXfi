@@ -53,5 +53,5 @@ class AlertListView(generics.ListAPIView):
         if cached_data:
             return Response(cached_data)
         response = super().list(request, *args, **kwargs)
-        cache.set(cache_key, response.data, timeout=60*5)  # Cache for 5 minutes
+        # cache.set(cache_key, response.data, timeout=60*5)  # Cache for 5 minutes
         return response

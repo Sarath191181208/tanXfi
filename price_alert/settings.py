@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import threading
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,12 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-def start_websocket():
-    from alerts.web_socket import run_websocket
-    ws_thread = threading.Thread(target=run_websocket)
-    ws_thread.start()
-start_websocket()
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,14 +37,17 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'rest_framework',
-    'rest_framework_jwt',
-    'alerts'
+    "rest_framework",
+    "rest_framework_jwt",
+    "rest_framework_simplejwt",
+    "alerts",
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 }
 

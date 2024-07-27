@@ -9,9 +9,10 @@ django-mysql = "*"
 django-cors-headers = "*"
 pika = "*"
 djangorestframework = "*"
-djangorestframework-jwt = "*"
 redis = "*"
 websocket-client = "*"
+djangorestframework-simplejwt = "*"
+drf-jwt = "*"
 
 [dev-packages]
 
