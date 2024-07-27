@@ -1,0 +1,8 @@
+- https://github.com/docker/awesome-compose/blob/master/django/app/Dockerfile
+- https://github.com/docker/awesome-compose/blob/master/django/compose.yaml
+- https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker
+- https://stackoverflow.com/questions/61926359/django-synchronousonlyoperation-you-cannot-call-this-from-an-async-context-u
+- https://stackoverflow.com/questions/35832095/difference-between-links-and-depends-on-in-docker-compose-yml
+- https://stackoverflow.com/questions/47309643/node-cant-connect-to-redis-via-docker-compose
+- https://docs.docker.com/compose/networking/
+- https://stackoverflow.com/questions/33992867/how-do-you-perform-django-database-migrations-when-using-docker-compose
