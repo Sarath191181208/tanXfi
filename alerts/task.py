@@ -11,7 +11,6 @@ def on_message(message):
     data = json.loads(message)
     if not 'p' in data: 
         return 
-    print(data)
     price = float(data['p'])
     alerts = Alert.objects.filter(target_price__lte=price, status='created')
     for alert in alerts:
