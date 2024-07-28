@@ -1,8 +1,12 @@
+BYellow='\033[1;33m'
+BIWhite='\033[1;97m'
+NC='\033[0m' # No Color
+
 ###### VENV ####### 
 # Check if virtual environment is activated
-if [ -z "VIRTUAL_ENV" ]
+if [ -z "$VIRTUAL_ENV" ]
 then
-    printf "Virtual environment is not activated Use `BYellowpipenv BIWhiteshellNC` command. Exiting..."
+    printf "Virtual environment is not activated Use \`${BYellow}pipenv ${BIWhite}shell${NC}\` command. Exiting..."
     exit 1
 fi
 
