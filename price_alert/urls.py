@@ -25,7 +25,9 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    # Routes for managing alerts
     path("alerts/", include("alerts.urls")),
+    # Routes for managing user authentication using JWT tokens
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]

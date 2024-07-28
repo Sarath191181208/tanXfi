@@ -1,3 +1,4 @@
+- https://stackoverflow.com/questions/30233105/docker-compose-up-for-only-certain-containers
 - https://github.com/docker/awesome-compose/blob/master/django/app/Dockerfile
 - https://github.com/docker/awesome-compose/blob/master/django/compose.yaml
 - https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker

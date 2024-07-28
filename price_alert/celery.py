@@ -1,3 +1,10 @@
+"""
+This file sets up and configures a Celery worker 
+for handling background tasks in a Django application.
+Specifically, it is responsible for managing asynchronous 
+tasks related to fetching external data via WebSocket connections.
+"""
+
 from __future__ import absolute_import, unicode_literals
 import os
 from celery import Celery
