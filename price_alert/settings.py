@@ -153,6 +153,11 @@ CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = "UTC"
 
+# Redis cache config 
+REDIS_HOST = "redis"
+REDIS_PORT = 6379
+REDIS_DB = 1
+
 # Start the celery worker when the Django app is ready
 # This worker will fetch data from the external websocket
 # and send emails
