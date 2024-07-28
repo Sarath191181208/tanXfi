@@ -137,16 +137,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Celery configuration 
-CELERY_BROKER_URL = 'redis://redis:6379/0'
-CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
-
-# Start the celery worker when the Django app is ready 
-# This worker will fetch data from the external websocket 
 # SMTP i.e Mail service Configuration
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
@@ -162,10 +152,16 @@ CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = "UTC"
+
+# Start the celery worker when the Django app is ready
+# This worker will fetch data from the external websocket
 # and send emails
 from celery.signals import worker_ready
+
 
 @worker_ready.connect
 def start_worker(sender, **_):
     with sender.app.connection() as conn:
-        sender.app.send_task('alerts.task.fetch_external_websocket_data', connection=conn)
+        sender.app.send_task(
+            "alerts.task.fetch_external_websocket_data", connection=conn
+        )
