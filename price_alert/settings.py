@@ -144,6 +144,21 @@ CELERY_TIMEZONE = 'UTC'
 
 # Start the celery worker when the Django app is ready 
 # This worker will fetch data from the external websocket 
+# SMTP i.e Mail service Configuration
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "vssarathc04@gmail.com"
+EMAIL_HOST_PASSWORD = "gaco yfrp ocwe sxnn"  # password associated with above email-id
+
+# Celery configuration
+CELERY_BROKER_URL = "redis://redis:6379/0"
+CELERY_RESULT_BACKEND = "redis://redis:6379/0"
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TIMEZONE = "UTC"
 # and send emails
 from celery.signals import worker_ready
 
