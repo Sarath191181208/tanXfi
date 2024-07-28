@@ -20,8 +20,7 @@ only the alerts that were triggered, then the endpoint should provide just that)
 - There is no need to add tests.
 - You can use Binance's WebSocket connection to get real-time price updates
 - You can also use this endpoint to fetch the latest price of the cryptocurrency:
-https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=ma
-rket_cap_desc&per_page=100&page=1&sparkline=false but prefer using
+    https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1&sparkline=false but prefer using
 Binance WebSocket
 - When the price of the coin reaches the price specified by the users, send an email to the
 user that set the alert at that price. (send mail using Gmail SMTP, SendGrid, etc). If this is
