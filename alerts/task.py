@@ -71,14 +71,15 @@ async def _fetch_external_websocket_data_async():
     URI = websocket_url("btcusdt")
     async with websockets.connect(URI) as ws:
         # Subscribe to the WebSocket channel
-        await ws.send(get_sub_json("btcusdt", 0))
-        try:
-            # Continuously listen for incoming messages
-            message = await ws.recv()
-            await sync_to_async(lambda: on_message(message))()
-        except websockets.ConnectionClosed:
-            # Handle closed connection
-            print("[CLOSED] Connection closed")
+        await ws.send(get_sub_json("btcusdt", 1))
+        while True:
+            try:
+                # Continuously listen for incoming messages
+                message = await ws.recv()
+                await sync_to_async(lambda: on_message(message))()
+            except websockets.ConnectionClosed:
+                # Handle closed connection
+                print("[CLOSED] Connection closed")
 
 
 @shared_task
