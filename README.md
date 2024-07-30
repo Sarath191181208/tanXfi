@@ -17,18 +17,19 @@ The project uses the fowlling technologies:
 ![Architecture diagram](./assets/email_notfication_system.png)
 
 ### Features 
-- CRUD operations on alerts.
-- realtime price monitoring using Websockets.
-- highly scalable email notification through redis.
+- Create, Read, Delete alerts for the pricing alerts.
+- Realtime price monitoring using wss://stream.binance.com.
+- Highly scalable email notification system using redis as a queue.
     
 ### End points 
 
+- `POST /api/token` Creates and responds with a JWT and a refresh token.
+- `POST /api/token/refresh/` Refresh the current JWT token.
 - `POST /alerts/create/` Creates a new alert 
 - `DELETE /alerts/delete` Deletes an alert 
 - `GET /alerts` Gets the alert and supports query params
 
 ## Requirements 
-- python installed `sudo pacman -Sy python3`
 - docker installed `sudo pacman -Sy docker`
 - docker-compose installed `sudo pacman -Sy docker-compse`
 
