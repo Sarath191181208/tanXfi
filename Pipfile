@@ -15,6 +15,7 @@ drf-jwt = "*"
 celery = "*"
 websockets = "*"
 asyncio = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 graphviz = "*"

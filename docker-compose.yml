@@ -12,6 +12,8 @@ services:
       - 587:587
     volumes:
       - .:/app/
+    depends_on:
+      - db
 
   celery_worker:
     build:
@@ -34,14 +36,12 @@ services:
       - REDIS_PASSWORD=my-password
       - REDIS_PORT=6379
       - REDIS_DATABASES=16
-  # db:
-  #   image: postgres
-  #   restart: always
-  #   environment:
-  #     POSTGRES_DB: greenlight
-  #     POSTGRES_PASSWORD: psswd
-  #     POSTGRES_USER: user
-  #   volumes:
-  #     - ./.postgres-data/db:/var/lib/postgresql/data 
-  #   ports:
-  #     - 5432:5432
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: tanxfi
+      POSTGRES_PASSWORD: psswd
+      POSTGRES_USER: user
+    volumes:
+      - ./.postgres-data/db:/var/lib/postgresql/data 
