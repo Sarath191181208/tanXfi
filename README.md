@@ -2,6 +2,10 @@
 An microservice application to solve the problem mentioned in the [problem.md](problem.md).
 Basically a price monitoring system which mails when a certain threshold is met.
 
+## Architecture 
+- This diagram is created using [https://diagrams.mingrammer.com](https://diagrams.mingrammer.com)
+![Architecture diagram](./assets/email_notfication_system.png)
+
 ## Overview 
 The project uses the fowlling technologies: 
 - Django / DjangoREST 
@@ -11,10 +15,6 @@ The project uses the fowlling technologies:
 - Docker compose 
 - JWT 
 - Websockets
-
-## Architecture 
-- This diagram is created using [https://diagrams.mingrammer.com](https://diagrams.mingrammer.com)
-![Architecture diagram](./assets/email_notfication_system.png)
 
 ### Features 
 - Create, Read, Delete alerts for the pricing alerts.
