@@ -7,3 +7,6 @@
 - https://stackoverflow.com/questions/47309643/node-cant-connect-to-redis-via-docker-compose
 - https://docs.docker.com/compose/networking/
 - https://stackoverflow.com/questions/33992867/how-do-you-perform-django-database-migrations-when-using-docker-compose
+- https://stackoverflow.com/questions/60895800/executing-two-celery-workers-from-one-line
+- https://stackoverflow.com/questions/2668567/django-models-get-specific-columns
+- https://stackoverflow.com/questions/10372877/how-to-create-a-user-in-django
