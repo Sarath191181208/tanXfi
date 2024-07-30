@@ -27,6 +27,17 @@ services:
     volumes:
       - .:/app/
 
+  email_service_worker:
+    build:
+      context: ./email_service/
+      dockerfile: Dockerfile  
+    working_dir: /app
+    command: 'python email_service/main.py'
+    depends_on:
+      - redis
+    volumes:
+      - .:/app/
+
   redis:
     image: redis:latest
     restart: always

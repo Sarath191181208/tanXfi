@@ -3,9 +3,32 @@ from celery import shared_task
 from django.dispatch.dispatcher import asyncio
 import websockets
 import json
-from django.core.mail import send_mail
-from django.conf import settings
+
+import uuid
+
+from price_alert.settings import (
+    EMAIL_QUEUE_HOST,
+    EMAIL_QUEUE_NAME,
+    EMAIL_QUEUE_PORT,
+    EMAIL_DB_PASSWORD,
+    EMAIL_DB,
+)
 from .models import Alert
+
+import redis
+
+
+def redis_db():
+    db = redis.Redis(
+        host=EMAIL_QUEUE_HOST,
+        port=EMAIL_QUEUE_PORT,
+        db=EMAIL_DB,
+        # password=EMAIL_DB_PASSWORD,
+        decode_responses=True,
+    )
+
+    db.ping()
+    return db
 
 
 def websocket_url(coin_name: str) -> str:
@@ -22,7 +45,7 @@ def get_sub_json(coin: str, idx: int):
     )
 
 
-def on_message(message):
+def on_message(message, db: redis.Redis):
     """
     Handles incoming WebSocket messages, updates alert statuses, and sends notification emails.
 
@@ -54,13 +77,20 @@ def on_message(message):
                 f"Price Alert Triggered: {alert.coin} at ${price} for {alert.user.email}"
             )
 
-            # Send an email notification to the user
-            send_mail(
-                subject="Price Alert Triggered",
-                message=f"The price of {alert.coin} has reached your target of ${alert.target_price}!",
-                from_email=settings.EMAIL_HOST_USER,
-                recipient_list=[alert.user.email],
-                fail_silently=False,
+            db.lpush(
+                EMAIL_QUEUE_NAME,
+                json.dumps(
+                    {
+                        "id": uuid.uuid4().hex,
+                        "data": {
+                            "coin": alert.coin,
+                            "price": price,
+                            "target_price": alert.target_price,
+                            "email": alert.user.email,
+                        },
+                    },
+                    default=str,
+                ),
             )
     except (json.JSONDecodeError, KeyError, ValueError) as e:
         # Log the exception if needed (optional)
@@ -69,6 +99,7 @@ def on_message(message):
 
 async def _fetch_external_websocket_data_async():
     URI = websocket_url("btcusdt")
+    db = redis_db()
     async with websockets.connect(URI) as ws:
         # Subscribe to the WebSocket channel
         await ws.send(get_sub_json("btcusdt", 1))
@@ -76,7 +107,7 @@ async def _fetch_external_websocket_data_async():
             try:
                 # Continuously listen for incoming messages
                 message = await ws.recv()
-                await sync_to_async(lambda: on_message(message))()
+                await sync_to_async(lambda: on_message(message, db))()
             except websockets.ConnectionClosed:
                 # Handle closed connection
                 print("[CLOSED] Connection closed")
