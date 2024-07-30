@@ -51,7 +51,7 @@ The project uses the fowlling technologies:
     ```python
         ## admin
         name: admin 
-        password: --none--
+        password: admin
     
         ## user
         name: user
