@@ -37,7 +37,6 @@ The project uses the fowlling technologies:
 ├── problem.md                  # Document describing problem given by tanX
 ├── README.md                   # Project README file
 ├── References.md               # References and resources
-├── test.txt                    # Test file
 ├── docker-compose.yml          # Docker Compose configuration
 ├── Dockerfile                  # Dockerfile for building images
 └── Todo.md                     # TODO list or notes
