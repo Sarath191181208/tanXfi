@@ -3,6 +3,7 @@ from rest_framework.exceptions import NotFound
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import Response
 
+from alerts.pagination import AlertPaginator
 from price_alert.settings import REDIS_DB, REDIS_HOST, REDIS_PORT
 
 from .serializers import CreateAlertSerializer, ViewAlertSerializer
@@ -79,6 +80,9 @@ class AlertListView(generics.ListAPIView):
     # Define the permission class to ensure the user is authenticated
     permission_classes = [IsAuthenticated]
 
+    # Define the paginator class 
+    pagination_class = AlertPaginator
+
     def get_queryset(self):
         """
         Retrieve the queryset of Alert instances based on the request parameters.
@@ -109,13 +113,12 @@ class AlertListView(generics.ListAPIView):
         Returns:
             Response: A Response object containing the serialized list of alerts.
         """
-        # Uncomment and adjust cache logic as needed for your caching strategy
         cache_key = f"alerts_{request.user.id}_{request.query_params.get('status', 'all')}"
         cached_data = cache.get(cache_key)
         
         # If cached data exists, return it as the response
         if cached_data:
-            return Response( json.loads(cached_data))
+            return Response(json.loads(cached_data))
         
         # Otherwise, proceed with the standard list view processing
         response = super().list(request, *args, **kwargs)
