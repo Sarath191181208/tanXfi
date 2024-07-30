@@ -1,8 +1,11 @@
+-[ ] Document the endpoints.
+-[ ] Document the solution to sending alerts. 
+    - [ ] Create a new service to take in the alerts.
+-[ ] Make modular config
+-[ ] Api to add users.
 -[x] Connect to postgres.
--[x] Api to add users.
 -[x] Paginate the response. 
 -[x] Add redis to db querys.
--[ ] Make modular config
 -[x] Create a swagger UI.
 -[x] Push the send email task to redis.
 -[x] Automatic db migrate. 
