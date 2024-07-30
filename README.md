@@ -24,7 +24,7 @@ The project uses the fowlling technologies:
 - Highly scalable email notification system using redis as a queue.
     
 ### End points 
-[The full API Documentation](https://github.com/Sarath191181208/tanXfi/wiki/API-Documentation)
+[The Full API Documentation](https://github.com/Sarath191181208/tanXfi/wiki/API-Documentation)
 
 - `POST /api/token` Creates and responds with a JWT and a refresh token.
 - `POST /api/token/refresh/` Refresh the current JWT token.
