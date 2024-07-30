@@ -88,4 +88,6 @@ The work that needs to be done is put in [Todo.md](Todo.md).
         - `master-slave email sending consumers` master-slave is to make sure the work isn't getting dropped by consuer to send emails.
 - `wss://stream.binance.com` disconnects after 24hrs.
     - A. Try an exponential backoff policy to reconnect after 24hrs. 
+- On `send_mail` failure the whole system bounces back the email back and forth keeping the shole system at bay.
+    - A. Try to create a count int the object to only try until some time. 
 
