@@ -89,10 +89,10 @@ The work that needs to be done is put in [Todo.md](Todo.md).
     - A. Use multiple celery workers using `celery multi start 2 -A my_proj -c=1 -B:2 -Q:2 notification`
 - The fetching of emails from db isn't done in a distributed manner hurting performance.
     - A. Shard the db and have workers pickup a shard and work on it. This will require the fowlling things:
-        - `read replica` to not make original db suffer with many connections. 
-        - `master slave` to make sure the work isn't getting dropped
-        - `message broker` to save the work into.
-        - `master slave consumers` master-slave is to make sure the work isn't getting dropped by consuer to send emails.
+        - db should have `read replica` to not make original db suffer with many connections. 
+        - alert service should follow `master-slave` to make sure the work isn't getting dropped
+        - `message broker` to save the work of alert service into.
+        - `master-slave email sending consumers` master-slave is to make sure the work isn't getting dropped by consuer to send emails.
 - `wss://stream.binance.com` disconnects after 24hrs.
     - A. Try an exponential backoff policy to reconnect after 24hrs. 
 
