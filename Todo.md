@@ -1,4 +1,4 @@
--[ ] Document the endpoints.
+-[x] Document the endpoints.
 -[ ] Document the solution to sending alerts. 
     - [ ] Create a new service to take in the alerts.
 -[ ] Make modular config
