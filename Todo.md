@@ -1,6 +1,6 @@
--[ ] Connect to postgres.
--[ ] Add redis to db querys.
+-[x] Connect to postgres.
 -[ ] Api to add users.
+-[ ] Add redis to db querys.
 -[ ] Paginate the response. 
 -[ ] Make modular config
 -[x] Create a swagger UI.
