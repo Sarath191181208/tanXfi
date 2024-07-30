@@ -2,6 +2,8 @@
 An microservice application to solve the problem mentioned in the [problem.md](problem.md).
 Basically a price monitoring system which mails when a certain threshold is met.
 
+- The [API Documentation](https://github.com/Sarath191181208/tanXfi/wiki/API-Documentation)
+
 ## Architecture 
 - This diagram is created using [https://diagrams.mingrammer.com](https://diagrams.mingrammer.com)
 ![Architecture diagram](./assets/email_notfication_system.png)
