@@ -30,4 +30,7 @@ urlpatterns = [
     # Routes for managing user authentication using JWT tokens
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+
+    # Test routes for simple use of application 
+    path('test/', include("users.urls"), name='user_mgt'),
 ]
