@@ -3,6 +3,7 @@ An microservice application to solve the problem mentioned in the [problem.md](p
 Basically a price monitoring system which mails when a certain threshold is met.
 
 - The [API Documentation](https://github.com/Sarath191181208/tanXfi/wiki/API-Documentation)
+- The [Alert system design doc](https://github.com/Sarath191181208/tanXfi/wiki/Email-System-Documentation)
 
 ## Architecture 
 - This diagram is created using [https://diagrams.mingrammer.com](https://diagrams.mingrammer.com)
