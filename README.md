@@ -34,7 +34,7 @@ The project uses the fowlling technologies:
 ├── Pipfile                     # Pipenv dependency file
 ├── Pipfile.lock                # Pipenv lock file
 ├── manage.py                   # Django project management script
-├── problem.md                  # Document describing problems or issues
+├── problem.md                  # Document describing problem given by tanX
 ├── README.md                   # Project README file
 ├── References.md               # References and resources
 ├── test.txt                    # Test file
