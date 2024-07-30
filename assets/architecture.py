@@ -14,12 +14,19 @@ with Diagram("Email Notfication System", show=True):
     server = Server("wss://stream.binance.com")
     mail = Email("Email")
     cache = Redis("cache")
+    queue = Redis("Message Queue")
     
     with Cluster("Async workers"): 
         celery = Celery("Celery workers")
         redis = Redis("Broker")
         celery >> Edge(label="FETCH task") >> redis
         celery << redis
+
+    with Cluster("Distributed email service"):
+        email_service = [Server("S1"), Server("S2")]
+
+    celery >> queue
+    email_service << queue
 
     django >> cache
     django << cache
@@ -32,7 +39,7 @@ with Diagram("Email Notfication System", show=True):
     celery >>  server
     server >> Edge(label="FETCH price")  >> celery
 
-    celery >> Edge(label="SEND email") >> mail
+    email_service >> Edge(label="SEND email") >> mail
 
     users >> django
 
