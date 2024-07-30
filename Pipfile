@@ -17,6 +17,8 @@ websockets = "*"
 asyncio = "*"
 
 [dev-packages]
+graphviz = "*"
+diagrams = "*"
 
 [requires]
 python_version = "3.12"

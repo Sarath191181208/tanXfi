@@ -1,3 +1,4 @@
+-[ ] Paginate the response. 
 -[ ] Make modular config
 -[x] Add redis to db querys.
 -[x] Create a swagger UI.

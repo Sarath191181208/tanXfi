@@ -12,6 +12,10 @@ The project uses the fowlling technologies:
 - JWT 
 - Websockets
 
+## Architecture 
+- This diagram is created using [https://diagrams.mingrammer.com](https://diagrams.mingrammer.com)
+![Architecture diagram](./assets/email_notfication_system.png)
+
 ### Features 
 - CRUD operations on alerts.
 - realtime price monitoring using Websockets.
