@@ -1,6 +1,6 @@
 -[x] Document the endpoints.
 -[ ] Document the solution to sending alerts. 
-    - [ ] Create a new service to take in the alerts.
+    - [x] Create a new service to take in the alerts.
 -[ ] Make modular config
 -[ ] Api to add users.
 -[x] Connect to postgres.
