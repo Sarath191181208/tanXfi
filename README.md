@@ -19,6 +19,30 @@ The project uses the fowlling technologies:
 - JWT 
 - Websockets
 
+## Folder structure 
+```
+.
+├── alerts/                     # A Django subapp performing CRUD ops on DB
+├── assets/                     # Stores the architecture diagrams
+├── email_service/              # Incharge of sending emails
+├─ users/ ([Test]               # User management stuff for easier testing !! NOT SAFE !!
+├── price_alert/                # Project root folder
+├── .postgres-data              # PostgreSQL data directory
+├── .gitignore                  # Git ignore file
+├── .redis                      # Redis data directory
+├── .tmux                       # tmux session file
+├── Pipfile                     # Pipenv dependency file
+├── Pipfile.lock                # Pipenv lock file
+├── manage.py                   # Django project management script
+├── problem.md                  # Document describing problems or issues
+├── README.md                   # Project README file
+├── References.md               # References and resources
+├── test.txt                    # Test file
+├── docker-compose.yml          # Docker Compose configuration
+├── Dockerfile                  # Dockerfile for building images
+└── Todo.md                     # TODO list or notes
+```
+
 ### Features 
 - Create, Read, Delete alerts for the pricing alerts.
 - Realtime price monitoring using wss://stream.binance.com.
