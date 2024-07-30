@@ -13,6 +13,7 @@ with Diagram("Email Notfication System", show=True):
     db = PostgreSQL("Database")
     server = Server("wss://stream.binance.com")
     mail = Email("Email")
+    cache = Redis("cache")
     
     with Cluster("Async workers"): 
         celery = Celery("Celery workers")
@@ -20,8 +21,11 @@ with Diagram("Email Notfication System", show=True):
         celery >> Edge(label="FETCH task") >> redis
         celery << redis
 
-    django >> db 
-    django << db
+    django >> cache
+    django << cache
+
+    cache >> db 
+    cache << db
 
     db >> celery
 

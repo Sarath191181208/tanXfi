@@ -6,6 +6,7 @@
 - https://stackoverflow.com/questions/35832095/difference-between-links-and-depends-on-in-docker-compose-yml
 - https://stackoverflow.com/questions/47309643/node-cant-connect-to-redis-via-docker-compose
 - https://docs.docker.com/compose/networking/
+- https://www.enterprisedb.com/postgres-tutorials/how-use-postgresql-django
 - https://stackoverflow.com/questions/33992867/how-do-you-perform-django-database-migrations-when-using-docker-compose
 - https://stackoverflow.com/questions/60895800/executing-two-celery-workers-from-one-line
 - https://stackoverflow.com/questions/2668567/django-models-get-specific-columns

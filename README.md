@@ -47,16 +47,6 @@ The project uses the fowlling technologies:
     ```bash
     docker-compose up 
     ```
-4. Credentials for using the app
-    ```python
-        ## admin
-        name: admin 
-        password: admin
-    
-        ## user
-        name: user
-        password: user@2001
-    ```
 
 ## Setting up dev environment 
 **(THIS IS JUST MY PREFERENCE)**
